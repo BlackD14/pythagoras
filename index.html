@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pythagorean Theorem Calculator</title>
+    <link rel="stylesheet" href="./static/style.css">
+    <link rel="shortcut icon" href="./static/logo.png">
+    <link rel="icon" href="./static/logo.png" sizes="192x192">
+    <meta name="title" content="Pythagorean Theorem Calculator">
+    <meta name="type" content="website">
+    <meta name="description" content="Pythagorean Theorem Calculator">
+    <meta name="image" content="https://cdn.discordapp.com/attachments/922551795090350110/1185197805732634755/logo.png">
+    
+    <meta property="og:url" content="https://www.mineluxmc.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pythagorean Theorem Calculator">
+    <meta property="og:description" content="Pythagorean Theorem Calculator">
+    <meta property="og:image" content="https://cdn.discordapp.com/attachments/922551795090350110/1185197805732634755/logo.png">
+    <script>
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+      } else {
+          document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body class="bg-white dark:bg-gray-800">
+
+    <header>
+      <nav class="bg-white shadow-md border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <a href="/" class="flex items-center">
+            <img src="./static/logo.png" class="text-gray-900 h-10 dark:text-white dark:invert mr-3" alt="pythagoras-logo">
+            <span class="self-center text-gray-900 text-2xl font-semibold whitespace-nowrap dark:text-white">Pythagoras</span>
+          </a>
+  
+          <div class="flex md:order-2">
+            <button id="theme-toggle" type="button" class="items-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+              <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+              </svg>
+              <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+  
+        </div>
+      </nav>
+    </header>
+  
+    <main>
+      <div class="container mx-auto my-10">
+
+        <div class="space-y-5 px-10">
+          <div class="block max-w-sm md:max-w-lg p-6 m-auto bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-900 dark:border-gray-700">
+            <form>
+              <div class="mb-6 justify-center md:space-x-10 flex items-center">
+                <img src="./static/logo.png" class="text-gray-900 h-24 dark:text-white dark:invert mr-3" alt="pythagoras-logo">
+                <div class="flex inline-flex flex-col space-y-2">
+                  <div class="flex flex-nowrap">
+                    <input type="number" name="av" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full md:w-sm focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="a" autocomplete="off">
+                    <div class="relative">
+                      <label class="flex items-center">
+                        <span class="mr-2 text-gray-900 dark:text-white">\(\sqrt{}\)</span>
+                        <input type="number" name="asv" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full md:w-sm focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="a" autocomplete="off">
+                      </label>
+                    </div>
+                  </div>
+                  <div class="flex flex-nowrap">
+                    <input type="number" name="bv" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full md:w-sm focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="b" autocomplete="off">
+                    <div class="relative">
+                      <label class="flex items-center">
+                        <span class="mr-2 text-gray-900 dark:text-white">\(\sqrt{}\)</span>
+                        <input type="number" name="bsv" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full md:w-sm focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="b" autocomplete="off">
+                      </label>
+                    </div>
+                  </div>
+                  <div class="flex flex-nowrap">
+                    <input type="number" name="cv" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full md:w-sm focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="c" autocomplete="off">
+                    <div class="relative">
+                      <label class="flex items-center">
+                        <span class="mr-2 text-gray-900 dark:text-white">\(\sqrt{}\)</span>
+                        <input type="number" name="csv" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full md:w-sm focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="c" autocomplete="off">
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" name="x" value="Calculate">
+              <button id="submit" type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            </form>
+          </div>
+      
+          <div class="hidden text-center" id="result">
+            <div class="block p-2.5 max-w-sm m-auto text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="result-field">
+            </div>
+          </div>
+      
+      </div>
+    </main>
+  
+    <footer class="bg-white fixed bottom-0 left-0 right-0 drop-shadow-lg shadow rounded-lg m-4 dark:bg-gray-900">
+      <div class="w-full mx-auto max-w-screen-xl p-4 text-center">
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">Copyleft 2023 - Made with ❤️ by <a href="https://wakatime.com/@BlackD" class="text-blue-500">BlackD</a>.</span>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="./static/main.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+	</body>
+</html>
