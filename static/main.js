@@ -6,8 +6,8 @@ return[1,number];}
 function parse(str){let num=parseFloat(str);if(!isNaN(num)){if(Number.isInteger(num)){return parseInt(str);}else{return num;}}else{return NaN;}}
 function inputCount(data){let filled=0;for(let i=0;i<data.length;i++){if(!isNaN(data[i])){filled++;}}
 return filled;}
-function isAGreaterThanC(c,a){let div=document.getElementById('result-field');let err=document.createElement('p');if(a>c){err.textContent="The a value need to be smaller than the c value.";div.innerHTML='';div.appendChild(err);return true;}}
-function isBGreaterThanC(c,b){let div=document.getElementById('result-field');let err=document.createElement('p');if(b>c){err.textContent="The b value need to be smaller than the c value.";div.innerHTML='';div.appendChild(err);return true;}}
+function isAGreaterThanC(c,a){let div=document.getElementById('result-field');let err=document.createElement('p');if(a>=c){err.textContent="The a value need to be smaller than the c value.";div.innerHTML='';div.appendChild(err);return true;}}
+function isBGreaterThanC(c,b){let div=document.getElementById('result-field');let err=document.createElement('p');if(b>=c){err.textContent="The b value need to be smaller than the c value.";div.innerHTML='';div.appendChild(err);return true;}}
 document.querySelector('button[type="submit"]').addEventListener('click',e=>{let av=parse(document.querySelector('input[type="number"][name="av"]').value);let asv=parse(document.querySelector('input[type="number"][name="asv"]').value);let bv=parse(document.querySelector('input[type="number"][name="bv"]').value);let bsv=parse(document.querySelector('input[type="number"][name="bsv"]').value);let cv=parse(document.querySelector('input[type="number"][name="cv"]').value);let csv=parse(document.querySelector('input[type="number"][name="csv"]').value);let x=document.querySelector('input[type="hidden"][name="x"]')
 let data=[av,asv,bv,bsv,cv,csv]
 let basic=[av,bv,cv]
